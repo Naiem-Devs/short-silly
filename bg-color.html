@@ -1,0 +1,162 @@
+<!doctype html>
+<html class="no-js" lang="">
+  <head>
+      <meta charset="utf-8">
+      <meta http-equiv="x-ua-compatible" content="ie=edge">
+      <title>Site Title Here</title>
+      <meta name="description" content="">
+      <meta name="viewport" content="width=device-width, initial-scale=1"> 
+  <link rel="shortcut icon" type="image/x-icon" href="#">
+      <!-- Place favicon.ico in the root directory -->
+      
+  <!-- CSS here -->
+      <link rel="stylesheet" href="assets/css/bootstrap.min.css"> 
+      <link rel="stylesheet" href="assets/css/fontawesome.min.css">  
+      <link rel="stylesheet" href="assets/css/style.css">
+      <link rel="stylesheet" href="assets/css/responsive.css">
+  </head>
+  <body>
+
+    <main>
+
+      <section class="pick_bg_color">
+          <div class="container-fluid ">
+              <div class="row">
+                  <div class="col-lg-6">
+                      <div class="pick_bg_color_cont">
+                          <div class="logo_area">
+                            <a href="#" class="left_go">
+                                <i class="far fa-chevron-left"></i>
+                            </a>
+                            <a href="#">
+                                <img src="assets/img/logo.png" alt="">
+                            </a>
+                            <span>
+                                3/5
+                            </span>
+                          </div>
+                          <h1>Pick the background color of your poster  </h1>
+                          <div class="pick_bg_color_img d-none">
+                            <i >
+                                <img src="assets/img/dog.png" alt="">
+                            </i>
+                          </div>
+                            <ul class="nav nav-pills  tab_btn mb-3" id="pills-tab" role="tablist">
+                              <li class="nav-item" role="presentation">
+                                <button class="nav-link active" id="pills-home-tab" data-bs-toggle="pill" data-bs-target="#pills-home" type="button" role="tab" aria-controls="pills-home" aria-selected="true">Pre made</button>
+                              </li>
+                              <li class="nav-item" role="presentation">
+                                <button class="nav-link" id="pills-profile-tab" data-bs-toggle="pill" data-bs-target="#pills-profile" type="button" role="tab" aria-controls="pills-profile" aria-selected="false">Pick your own</button>
+                              </li>
+                            </ul>
+                          <div class="pick_bg_color_box">
+                            
+                            <div class="tab-content" id="pills-tabContent">
+                              <div class="tab-pane fade show active" id="pills-home" role="tabpanel" aria-labelledby="pills-home-tab">
+                                <div class="Pre_made">
+                                    <ul>
+                                      <li><button type="button" class="active" style="background: #ffffff;"></button></li>
+                                      <li><button type="button" style="background: #C4CEB7;"></button></li>
+                                      <li><button type="button" style="background: #6A7785;"></button></li>
+                                      <li><button type="button" style="background: #2C5683;"></button></li>
+                                      <li><button type="button" style="background: #EFEFEF;"></button></li>
+                                      <li><button type="button" style="background: #455169;"></button></li>
+                                      <li><button type="button" style="background: #2E2E2E;"></button></li>
+                                      <li><button type="button" style="background: #E2D4C8;"></button></li>
+                                    </ul>                    
+                                </div>
+                              </div>
+                              <div class="tab-pane fade" id="pills-profile" role="tabpanel" aria-labelledby="pills-profile-tab">
+                                <div class="Pick_your_own">
+                                  <div class="color-picker">
+                                    <div class="pallette">
+                                        <i class="circle"></i>
+                                    </div>
+                                    <form>
+                                        <div>
+                                        <input type="range" min="0" max="360" value="0">
+                                        </div>
+                                        <div class="result">
+                                        hsl(0, 100%, 50%)
+                                        </div>
+                                    </form>
+                                  </div>
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                          <a href="#" class="thm_btn">Let’s Continue <i class="fal fa-long-arrow-right"></i></a>
+                          <i class="space"></i>
+                          <a href="#" class="Previous_btn"><i class="fal fa-angle-left"></i> Previous</a>
+                      </div>
+                  </div>
+                  <div class="col-lg-6">
+                      <div class="pick_bg_color_img ">
+                          <i >
+                              <img src="assets/img/dog.png" alt="">
+                          </i>
+                      </div>
+                  </div>
+              </div>
+          </div>
+      </section>
+
+
+    </main>
+  
+  <!-- JS here --> 
+      <script src="assets/js/jquery-3.4.1.min.js"></script>
+      <script src="assets/js/popper.min.js"></script>
+      <script src="assets/js/bootstrap.min.js"></script>
+        <script>
+// https://codepen.io/ludomydla/pen/QYRpyE
+
+document.addEventListener("DOMContentLoaded", function() {
+let slider = document.querySelector("input[type='range']");
+let pallette = document.querySelector(".pallette");
+let result = document.querySelector(".result");
+let circle = document.querySelector(".circle");
+let theColor = {h:0, s: 100, l: 50};
+
+function getColors() {
+  return {
+    color: `hsl(${theColor.h}, ${theColor.s}%, ${theColor.l}%)`,
+    contrastColor: `hsl(${theColor.h - 180}, 100%, ${100 -theColor.l}%)`
+  }
+}
+
+slider.addEventListener("input",function() {
+  let paletteColor = `hsl(${this.value}, 100%, 50%)`;
+  pallette.style.backgroundColor = paletteColor;
+  
+  theColor.h = this.value;
+  
+  let {color, contrastColor} = getColors();
+  result.innerHTML = color;
+  result.style.backgroundColor = color;
+  result.style.color = contrastColor;
+  circle.style.borderColor = contrastColor;
+});
+
+pallette.addEventListener("click", function(ev) {
+  let saturation = Math.round(100 * (ev.offsetX / this.clientWidth));
+  // weird experimental math going on here
+  let lightness = Math.round((50 * (1- (ev.offsetY / this.clientHeight))) * (2 - (saturation/100)));
+  
+  circle.style.top = ev.offsetY + "px";
+  circle.style.left = ev.offsetX + "px";
+  
+  theColor = {h: slider.value, s: saturation, l: lightness};
+  
+  let {color, contrastColor} = getColors();
+  result.innerHTML = color;
+  result.style.backgroundColor = color;
+  result.style.color = contrastColor;
+  circle.style.borderColor = contrastColor;
+});
+});
+
+
+      </script> 
+  </body>
+</html>
