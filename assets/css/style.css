@@ -141,9 +141,9 @@ height: 368px;padding: 35px;}
 
 div#pills-tabContent {height: 100%;}
 
-.Pre_made button {width: 90px;height: 90px;display: inline-block;border-radius: 50%;box-sizing: border-box;border: none;}
+.Pre_made button {width: 90px;height: 90px;display: inline-block;border-radius: 50%;box-sizing: border-box;border: none;border: 3px solid #ff000000;box-sizing: border-box;}
 
-.Pre_made button.active {border: 2px solid var(--color_yellow);}
+.Pre_made button.active {border: 3px solid var(--color_yellow);}
 
 .Pre_made ul {display: flex;flex-wrap: wrap;justify-content: space-between;align-items: center;height: 100%;}
 
@@ -247,15 +247,15 @@ display: flex;align-items: flex-start;}
 
 .pg_content_blk span {width: 50px;height: 50px;background: #757884;display: flex;justify-content: center;align-items: center;border-radius: 50%;flex: 0 0 10%;max-width: 50px;margin-right: 20px;font-size: 24px;font-weight: 700;color: #fff;}
 .pcb {
-font-size: 25px;}
+font-size: 21px;}
 
-.pcb p a {font-weight: 600;text-decoration: underline;}
+.pcb p a {font-weight: 600;text-decoration: underline;display: inline-block;font-size: 21px;}
 
-.pcb h3 {margin-top: 30px;}
+.pcb h3 {font-size: 21px;margin-top: 30px;}
 .terms_box {
 margin-top: 100px;background: var(--color_orange);color: #fff;display: flex;padding: 30px;border-radius: 30px;align-items: center;}
 
-.terms_btn {max-width: 601px;margin-left: auto;}
+.terms_btn {max-width: 630px;margin-left: auto;}
 
 .terms_btn a {width: 100%;max-width: 100%;}
 
@@ -272,6 +272,8 @@ box-sizing: border-box;position: relative;}
 .pg_img {
 overflow: hidden;position: relative;}
 
+.pg_img img {border-radius: 20px;}
+
 .pg_img h3 {margin-bottom: 25px;}
 
 .pg_img > i {display: block;margin-bottom: 20px;}
@@ -282,18 +284,22 @@ i.gd-8 {position: absolute;right: 0;top: 20%;}
 
 i.gd-6 {margin-top: -205px;}
 
-i.gd-5 {text-align: center;position: relative;margin-right: -210px;}
+i.gd-5 {text-align: center;position: relative;margin-right: -54px;}
 /*=======terms_photo page End ==========*/
 
 
 /*=======Renaissance page Start =======*/
-.pick_style_wrp {display: flex !important;flex-wrap: wrap;justify-content: center;margin-bottom: 30px;}
+.pick_style_wrp {display: flex !important;flex-wrap: wrap;margin-bottom: 30px;margin: auto;}
 
 .pick_style_wrp a p {font-size: 20px;font-weight: 600;margin-top: 10px;}
 
-.pick_style_wrp a {position: relative;text-align: center;flex: 0 0 33%;max-width: 235px;margin: auto;margin-bottom: 20px;box-sizing: border-box;display: block;}
+.pick_style_wrp a span.last_ps {margin: 0;position: unset;margin-top: -15px;display: block;margin-bottom: 10px;font-size: 18px;font-weight: 500;color: #898989;}
+
+.pick_style_wrp a {position: relative;text-align: center;flex: 0 0 33%;max-width: 235px;box-sizing: border-box;display: block;margin: 10px 20px;}
 
 .pick_style_wrp a:focus-within span i, .pick_style_wrp a:focus span i {opacity: 1;}
+
+.pick_style_wrp a:focus-within, .pick_style_wrp a:focus {animation: bounce 3s inifinity;}
 
 .pick_style_wrp a:focus-within > i, .pick_style_wrp a:focus > i {border-color: var(--color_yellow);}
 
@@ -338,6 +344,8 @@ max-width: 500px;margin: auto;}
 
 .essential_info {padding-top: 30px;}
 
+.essential_info a.thm_btn {margin-bottom: 0;}
+
 .essential_info label.input_label {margin-bottom: 25px;}
 
 .essential_info h2 {margin-bottom: 30px;}
@@ -358,7 +366,7 @@ label.input_label {display: block;margin-bottom: 25px;}
 
 .input_label_top a i {opacity: .6;font-size: 20px;}
 
-label.input_label p {position: absolute;margin-bottom: 0;background: var(--color_yellow);padding: 10px 20px;border-radius: 20px;width: max-content;top: -60px;left: -850%;opacity: 0;z-index: -1;}
+label.input_label p {position: absolute;margin-bottom: 0;background: var(--color_yellow);padding: 10px 20px;border-radius: 20px;width: max-content;top: -60px;left: -880%;opacity: 0;z-index: -1;}
 
 label.input_label p:after {content: "";position: absolute;width: 13px;height: 13px;background: #fed442;left: 50%;bottom: -11px;transform: rotate(45deg) translateX(-50%);}
 
@@ -381,7 +389,9 @@ border-radius: 30px;overflow: hidden;font-size: 18px;}
 
 .input-blk i {position: absolute;top: 50%;transform: translateY(-50%);left: 28px;font-size: 20px;}
 
-.input-blk i.fas.fa-check-circle {left: auto;right: 25px;color: var(--color_btn);}
+.input-blk i.fali#message, i#message {left: auto;right: 25px;color: var(--color_btn);}
+
+i.fa-times {color: red !important;}
 
 .input-blk input,.input-blk textarea {width: 100%;height: 100%;border: none;border-radius: 30px;padding: 0 20px;}
 
@@ -393,9 +403,9 @@ border-radius: 30px;overflow: hidden;font-size: 18px;}
 .space {
 }
 .contact_img {
-height: 100%;max-height: 100vh;}
+height: 100%;max-height: 100vh;overflow: hidden;position: relative;}
 
-.contact_img img {width: 100%;object-fit: cover;height: 100%;}
+.contact_img img {width: 100%;object-fit: cover;height: 100vh;}
 /*======= page End ==========*/
 
 
@@ -419,6 +429,8 @@ label.Upload_file .input-blk {height: 100px;border-style: dashed;border-width: 2
 
 .pet_photo {justify-content: left !important;max-width: 770px;margin: auto;}
 
+h5.poster {max-width: 775px;margin: auto;margin-bottom: 20px;}
+
 .pet_photo a > i {height: 300px;}
 
 .pet_photo a i img {object-fit: cover;}
@@ -433,7 +445,7 @@ label.Upload_file .input-blk {height: 100px;border-style: dashed;border-width: 2
 
 .pet_photo a:focus-within > span i, .pet_photo a:focus > span i {opacity: 0;}
 
-.pet_photo a {margin: unset;margin-right: 20px;}
+.pet_photo a {margin: unset;margin-right: 20px;margin-bottom: 10px;}
 .sm_block{display: none;}
 /*=======pet_photo page End ==========*/
 
@@ -497,8 +509,12 @@ border-radius: 8px;padding: 10px 20px;display: inline-block;}
 }
 .fa-angle-left {
 }
-.contact_img {
-}
+.contact_img .owl-dot {
+width: 20px;height: 20px;background: #C4C4C4;margin: 0 5px;border-radius: 50%;}
+
+.contact_img .owl-dot.active {background: var(--color_btn);}
+
+.contact_img .owl-dots {display: flex;position: absolute;bottom: 30px;left: 50%;transform: translateX(-50%);}
 /*=======additional page End ==========*/
 
 
@@ -724,7 +740,7 @@ section.thank-you {}
 .thank_you_wrp {
 display: flex;align-items: center;justify-content: space-between;}
 .thank_you_cont {
-max-width: 744px;font-size: 24px;}
+max-width: 744px;font-size: 21px;}
 
 .remembar {background: #FFFDFD;
 border-radius: 10px;padding: 30px;}

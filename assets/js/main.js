@@ -1,34 +1,18 @@
+
+  
 (function($) {
   "use strict";
-  
- // menu 
-  $('.siteBar-btn').click( function (){ 
-    $('.mobile-menu').toggleClass('siteBar');   
-  }); 
+
 
 
   // owlCarousel
-  $(".brand-active").owlCarousel({
+  $(".contact_img").owlCarousel({
     loop: true,
     margin: 30,
-    items: 6,
-    navText: [
-      '<i class="fa fa-angle-left"></i>',
-      '<i class="fa fa-angle-right"></i>'
-    ],
+    items: 1,
+    smartSpeed: 800,
     nav: false,
-    dots: false,
-    responsive: {
-      0: {
-        items: 2
-      },
-      767: {
-        items: 3
-      },
-      992: {
-        items: 6
-      }
-    }
+    dots: true
   });
 
   // pick_style mobile slider
@@ -148,4 +132,7 @@ $(document).ready(function() {
       $(".dropdown img.flag").toggleClass("flagvisibility");
   });
 });
+
+
 })(jQuery);
+

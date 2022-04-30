@@ -55,7 +55,7 @@
                               <div class="tab-pane fade show active" id="pills-home" role="tabpanel" aria-labelledby="pills-home-tab">
                                 <div class="Pre_made">
                                     <ul>
-                                      <li><button type="button" class="active" style="background: #ffffff;"></button></li>
+                                      <li><button type="button" class="active" style="background: #000;"></button></li>
                                       <li><button type="button" style="background: #C4CEB7;"></button></li>
                                       <li><button type="button" style="background: #6A7785;"></button></li>
                                       <li><button type="button" style="background: #2C5683;"></button></li>
@@ -109,53 +109,70 @@
       <script src="assets/js/popper.min.js"></script>
       <script src="assets/js/bootstrap.min.js"></script>
         <script>
+           //Color Code         
 // https://codepen.io/ludomydla/pen/QYRpyE
 
 document.addEventListener("DOMContentLoaded", function() {
-let slider = document.querySelector("input[type='range']");
-let pallette = document.querySelector(".pallette");
-let result = document.querySelector(".result");
-let circle = document.querySelector(".circle");
-let theColor = {h:0, s: 100, l: 50};
-
-function getColors() {
-  return {
-    color: `hsl(${theColor.h}, ${theColor.s}%, ${theColor.l}%)`,
-    contrastColor: `hsl(${theColor.h - 180}, 100%, ${100 -theColor.l}%)`
+  let slider = document.querySelector("input[type='range']");
+  let pallette = document.querySelector(".pallette");
+  let result = document.querySelector(".result");
+  let circle = document.querySelector(".circle");
+  let theColor = {h:0, s: 100, l: 50};
+  
+  function getColors() {
+    return {
+      color: `hsl(${theColor.h}, ${theColor.s}%, ${theColor.l}%)`,
+      contrastColor: `hsl(${theColor.h - 180}, 100%, ${100 -theColor.l}%)`
+    }
   }
-}
-
-slider.addEventListener("input",function() {
-  let paletteColor = `hsl(${this.value}, 100%, 50%)`;
-  pallette.style.backgroundColor = paletteColor;
   
-  theColor.h = this.value;
+  slider.addEventListener("input",function() {
+    let paletteColor = `hsl(${this.value}, 100%, 50%)`;
+    pallette.style.backgroundColor = paletteColor;
+    
+    theColor.h = this.value;
+    
+    let {color, contrastColor} = getColors();
+    result.innerHTML = color;
+    result.style.backgroundColor = color;
+    result.style.color = contrastColor;
+    circle.style.borderColor = contrastColor;
+  });
   
-  let {color, contrastColor} = getColors();
-  result.innerHTML = color;
-  result.style.backgroundColor = color;
-  result.style.color = contrastColor;
-  circle.style.borderColor = contrastColor;
-});
-
-pallette.addEventListener("click", function(ev) {
-  let saturation = Math.round(100 * (ev.offsetX / this.clientWidth));
-  // weird experimental math going on here
-  let lightness = Math.round((50 * (1- (ev.offsetY / this.clientHeight))) * (2 - (saturation/100)));
+  pallette.addEventListener("click", function(ev) {
+    let saturation = Math.round(100 * (ev.offsetX / this.clientWidth));
+    // weird experimental math going on here
+    let lightness = Math.round((50 * (1- (ev.offsetY / this.clientHeight))) * (2 - (saturation/100)));
+    
+    circle.style.top = ev.offsetY + "px";
+    circle.style.left = ev.offsetX + "px";
+    
+    theColor = {h: slider.value, s: saturation, l: lightness};
+    
+    let {color, contrastColor} = getColors();
+    result.innerHTML = color;
+    result.style.backgroundColor = color;
+    result.style.color = contrastColor;
+    circle.style.borderColor = contrastColor;
+  });
+  });
   
-  circle.style.top = ev.offsetY + "px";
-  circle.style.left = ev.offsetX + "px";
   
-  theColor = {h: slider.value, s: saturation, l: lightness};
+  // active border change
+  var borderBtn = document.querySelectorAll(".Pre_made button")
   
-  let {color, contrastColor} = getColors();
-  result.innerHTML = color;
-  result.style.backgroundColor = color;
-  result.style.color = contrastColor;
-  circle.style.borderColor = contrastColor;
-});
-});
-
+  borderBtn.forEach(borderBtns => {
+    borderBtns.addEventListener("click", () => {
+      borderBtnRemove()
+      borderBtns.classList.add('active')
+    })
+  })
+  
+  function borderBtnRemove() {
+    borderBtn.forEach(borderBtns => {
+      borderBtns.classList.remove('active')
+    })
+  }
 
       </script> 
   </body>
