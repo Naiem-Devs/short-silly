@@ -21,7 +21,11 @@
     margin: 30,
     items: 1,
     smartSpeed: 800,
-    nav: false,
+    nav: true,
+    navText: [
+      '<i class="far fa-chevron-left"></i>',
+      '<i class="far fa-chevron-right"></i>'
+    ],
     dots: true
   });
 

@@ -87,6 +87,10 @@ section.contact.last_think .logo_area {margin: 20px 0 40px;}
 
     /*======= Section Start =======*/
     .logo_area{margin: 20px 0;}
+
+.logo_area a img {max-width: 110px;object-fit: cover;}
+
+.logo_area span {width: 40px;height: 40px;}
     .Previous_btn{
         display: none;
     }
@@ -160,7 +164,7 @@ h3 {font-size: 20px;}
 
     /*======= Section Start =======*/
 section.pick_style h1{margin-bottom: 20px !important;max-width: 300px;margin: auto;}
-.pick_style_wrp a > i{max-width: 350px;margin: auto;border-color: var(--color_yellow);border-radius: 25px;border-width: 4px;overflow: hidden;}
+.pick_style_wrp a > i{max-width: 350px;margin: auto;/* border-color: var(--color_yellow); */border-radius: 25px;border-width: 4px;overflow: hidden;}
 
 .pick_style_wrp.pet_photo a > i {border: none;max-width: 100%;}
 
@@ -223,9 +227,13 @@ body.upload_pet_photo .contact .row {flex-direction: column;}
 
 .contact_img {max-width: 390px;margin: 120px auto 30px;}
 
+.contact_img i {display: block;border-radius: 20px;overflow: hidden;}
+
 .contact_img .owl-dot {width: 15px;height: 15px;}
 
 .contact_img img {max-height: 500px;}
+
+.contact_img .owl-nav {font-size: 30px;}
 
 .contact_form a.logo {position: absolute;top: 0;margin: 0;margin-top: 30px;}
 .contact_form {max-width: 400px;}
@@ -241,7 +249,7 @@ label.input_label p:after {display: none;}
 .contact_form_cont p {font-size: 16px;margin-bottom: 5px;}
 
 .second_picture p {left: 53px;}
-.contact_form .logo_area{position: absolute;width: 100%;max-width: 420px;top: 0;margin-top: 25px;padding-right: 20px;}
+.contact_form .logo_area{position: absolute;width: 95%;max-width: 420px;top: 0;margin-top: 25px;padding-right: 20px;}
 
 body.upload_pet_photo .logo_area {position: unset;margin-bottom: 42px;}
 
@@ -275,7 +283,10 @@ section.contact.last_think .logo_area {margin-bottom: 25px;}
 
 .input-phone {width: 110px;flex: 0 0 12%;max-width: unset;}
 
-.dropdown dt a {height: 48px;max-width: 100px;margin-right: 0;}
+.dropdown dt a {height: 48px;max-width: 100px;margin-right: 0px;}
+
+.dropdown dt a > span {margin-left: -15px;position: relative;}
+
 
 .wrapper {}
 
