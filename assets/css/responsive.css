@@ -133,6 +133,12 @@ i.gd-10 {margin: 0;margin-bottom: 20px;}
 
 .pg_img img {width: 100%;border-radius: 15px;}
 
+div#tp2two i {width: 100%;}
+
+div#tp2two {max-width: 100%;}
+
+div#tp3four {margin-top: 0;}
+
 i.gd-2 {display: none;}
     .terms_btn {max-width: 100%;display: none;}
 

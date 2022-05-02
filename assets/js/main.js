@@ -6,6 +6,16 @@
 
 
   // owlCarousel
+  $(".pg_img_slider").owlCarousel({
+    loop: true,
+    margin: 30,
+    items: 1,
+    smartSpeed: 800,
+    nav: false,
+    dots: true
+  });
+
+  // owlCarousel
   $(".contact_img").owlCarousel({
     loop: true,
     margin: 30,
