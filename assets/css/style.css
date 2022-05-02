@@ -278,7 +278,7 @@ overflow: hidden;position: relative;}
 
 .pg_img_slider {margin-bottom: 30px;border-radius: 20px;overflow: hidden;}
 
-div#tp2one {max-width: 442px;max-height: 490px;}
+div#tp2one {max-width: 425px;max-height: 510px;}
 
 .pg_img_slider .owl-dots {position: absolute;left: 50%;bottom: 30px;display: flex;transform: translateX(-50%);}
 
@@ -288,7 +288,7 @@ div#tp2one {max-width: 442px;max-height: 490px;}
 
 div#tp2two {position: relative;z-index: 9;max-width: 300px;margin-left: auto;max-height: 387px;}
 
-div#tp2three {margin-top: -247px;max-height: 536px;}
+div#tp2three {margin-top: -247px;max-height: 536px;max-width: 360px;}
 
 div#tp2three i {width: 360px;}
 
@@ -347,7 +347,7 @@ i.gd-5 {text-align: center;position: relative;margin-right: -54px;}
 
 .pick_style_wrp a:focus-within, .pick_style_wrp a:focus {animation: bounce 3s inifinity;}
 
-.pick_style_wrp a:focus-within > i, .pick_style_wrp a:focus > i {/* border-color: var(--color_yellow); */}
+.pick_style_wrp a:focus-within > i, .pick_style_wrp a:focus > i {border-color: var(--color_yellow);}
 
 .pick_style_wrp a i {border: 3px solid transparent;border-radius: 15px;transition: all .3s ease-in-out;overflow: hidden;display: flex;align-items: center;justify-content: center;}
 
@@ -572,7 +572,14 @@ width: 20px;height: 20px;background: #C4C4C4;margin: 0 5px;border-radius: 50%;}
 
 .phon_number {display: flex;justify-content: space-between;margin-bottom: -15px;}
 
-.input-phone {flex: 1 0 16%;max-width: 6%;}
+.input-phone {flex: 0 0 23%;max-width: 28%;height: 55px;
+    border: none;
+    position: relative;
+    margin-bottom: 15px;
+    background: #FFFFFF;
+    border: 1px solid #C8CACB;
+    box-sizing: border-box;
+    border-radius: 30px;}
 .verification{display: flex;align-items: center;margin-top: 10px;}
 
 .verification .input-blk {margin-bottom: 0;}
@@ -702,7 +709,7 @@ section.contact.last_think .logo_area {margin-bottom: 0;}
     overflow-y: scroll;
     top: 0px;
     z-index: 2;
-  }
+  transition: all 1s ease-in-out;}
   
   li a {
     font-size:13px;
@@ -822,3 +829,184 @@ border-radius: 10px;font-weight: 700;padding: 10px 15px;display: block;width: ma
 /*======= page End ==========*/
 
 
+.f-dropdown {
+  /* --max-scroll: 3; */
+  /* position: relative; */
+  /* z-index: 10; */
+height: 100%;}
+.f-dropdown select {
+  display: none;
+}
+.f-dropdown > span {
+  cursor: pointer;
+  padding: 8px 12px;
+  border-radius: 6px;
+  display: flex;
+  align-items: center;
+  position: relative;
+  color: #bbb;
+  /* border: 1px solid #ccc; */
+  /* background: #fff; */
+  transition: color 0.2s ease, border-color 0.2s ease;
+}
+
+.f-dropdown > span img {object-fit: cover;}
+.f-dropdown > span > span {
+  white-space: nowrap;
+  overflow: hidden;
+  /* text-overflow: ellipsis; */
+  padding-right: -8px;
+font-size: 15px;font-weight: 500;color: #828482;}
+.f-dropdown > span img {
+  width: 24px;
+  margin-right: 10px;
+height: 15px;object-fit: cover;margin-left: 5px;}
+.f-dropdown > span:before, .f-dropdown > span:after {
+  content: "";
+  display: block;
+  position: absolute;
+  width: 8px;
+  height: 2px;
+  border-radius: 1px;
+  top: 46%;
+  right: 15px;
+  background: #757884;
+  transition: all 0.3s ease;
+}
+.f-dropdown > span:before {
+  margin-right: 4px;
+  transform: scale(0.96, 0.8) rotate(50deg);
+}
+.f-dropdown > span:after {
+  transform: scale(0.96, 0.8) rotate(-50deg);
+}
+.f-dropdown ul {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  opacity: 0;
+  visibility: hidden;
+  position: absolute;
+  max-height: calc(var(--max-scroll) * 46px);
+  top: 40px;
+  left: 0;
+  z-index: 1;
+  right: 0;
+  background: #FFF;
+  border: 1px solid #CCC;
+  border-radius: 6px;
+  overflow-x: hidden;
+  overflow-y: auto;
+  transform-origin: 0 0;
+  transition: opacity 0.2s ease, visibility 0.2s ease, transform 0.3s cubic-bezier(0.4, 0.6, 0.5, 1.32);
+  transform: translate(0, 5px);
+}
+.f-dropdown ul li {
+  padding: 0;
+  margin: 0;
+}
+.f-dropdown ul li a {
+  cursor: pointer;
+  display: block;
+  padding: 7px 7px;
+  color: #000;
+  text-decoration: none;
+  outline: none;
+  position: relative;
+  transition: all 0.2s ease;
+  display: flex;
+  align-items: center;
+font-size: 15px;}
+.f-dropdown ul li a img {
+  width: 25px;
+  margin-right: 10px;
+height: 15px;}
+.f-dropdown ul li a:hover {
+  color: #5C6BC0;
+}
+.f-dropdown ul li.active a {
+  color: #FFF !important;
+  background: #4764dc;
+}
+.f-dropdown ul li.active a:before, .f-dropdown ul li.active a:after {
+  --scale: 0.6;
+  content: "";
+  display: block;
+  width: 10px;
+  height: 2px;
+  position: absolute;
+  right: 12px;
+  top: 50%;
+  opacity: 0;
+  background: #FFF;
+  transition: all 0.2s ease;
+}
+.f-dropdown ul li.active a:before {
+  transform: rotate(45deg) scale(var(--scale));
+}
+.f-dropdown ul li.active a:after {
+  transform: rotate(-45deg) scale(var(--scale));
+}
+.f-dropdown ul li.active a:hover:before, .f-dropdown ul li.active a:hover:after {
+  --scale: 0.9;
+  opacity: 1;
+display: none;}
+.f-dropdown ul li:first-child a {
+  border-radius: 6px 6px 0 0;
+}
+.f-dropdown ul li:last-child a {
+  border-radius: 0 0 6px 6px;
+}
+.f-dropdown.disabled {
+  opacity: 0.7;
+}
+.f-dropdown.disabled > span {
+  cursor: not-allowed;
+}
+.f-dropdown.filled > span {
+  color: #000;
+}
+.f-dropdown.open {
+  z-index: 15;
+}
+.f-dropdown.open > span {
+  border-color: #AAA;
+}
+.f-dropdown.open > span:before, .f-dropdown.open > span:after {
+  background: #000;
+}
+.f-dropdown.open > span:before {
+  transform: scale(0.96, 0.8) rotate(-50deg);
+}
+.f-dropdown.open > span:after {
+  transform: scale(0.96, 0.8) rotate(50deg);
+}
+.f-dropdown.open ul {
+  opacity: 1;
+  visibility: visible;
+  transform: translate(0, 12px);
+  transition: opacity 0.3s ease, visibility 0.3s ease, transform 0.3s cubic-bezier(0.4, 0.6, 0.5, 1.32);
+}
+
+/* --------------------------- */
+.f-group {
+  /* max-width: 250px; */
+  /* margin: 0 auto; */
+  /* text-align: left; */
+height: 100%;margin-top: 7px;}
+.f-group select {
+  width: 100%;
+}
+
+.f-control {
+  font-size: 14px;
+  line-height: normal;
+  color: #000;
+  display: inline-block;
+  /* background-color: #ffffff; */
+  /* border: #ccc 1px solid; */
+  /* border-radius: 6px; */
+  padding: 8px 12px;
+  outline: none;
+  max-width: 250px;
+}

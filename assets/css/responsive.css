@@ -137,6 +137,8 @@ i.gd-10 {margin: 0;margin-bottom: 20px;}
 
 .pg_img img {width: 100%;border-radius: 15px;}
 
+div#tp3one {/* max-width: 100%; */margin: auto;}
+
 div#tp2two i {width: 100%;}
 
 div#tp2two {max-width: 100%;}
@@ -164,7 +166,7 @@ h3 {font-size: 20px;}
 
     /*======= Section Start =======*/
 section.pick_style h1{margin-bottom: 20px !important;max-width: 300px;margin: auto;}
-.pick_style_wrp a > i{max-width: 350px;margin: auto;/* border-color: var(--color_yellow); */border-radius: 25px;border-width: 4px;overflow: hidden;}
+.pick_style_wrp a > i{max-width: 350px;margin: auto;/* border-color: var(--color_yellow); */border-radius: 25px;border-width: 4px;overflow: hidden;border: none;}
 
 .pick_style_wrp.pet_photo a > i {border: none;max-width: 100%;}
 
@@ -187,6 +189,10 @@ body.upload_pet_photo .pick_style .thm_btn {}
 .pick_style_sm_img a:first-child {margin-left: 0;}
 
 .pick_style_wrp {margin-bottom: 0;}
+
+.pick_style_wrp  .owl-stage-outer {padding-top: 30px;}
+
+.pick_style_wrp .owl-carousel .owl-stage-outer {padding-top: 38px;}
 
 .pick_style_wrp .active a span i {opacity: 0;}
 
