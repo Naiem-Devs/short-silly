@@ -287,7 +287,9 @@ section.contact.last_think .logo_area {margin-bottom: 25px;}
 .contact_form_cont.last_think_cont {margin-bottom: 20px;}
 .phon_number .input-blk:last-child {max-width: 70%;}
 
-.input-phone {width: 110px;flex: 0 0 12%;max-width: unset;}
+.input-phone {width: 196px;flex: 1 0 28%;max-width: 35%;margin-right: 10px;height: 47px;}
+
+.f-group {margin-top: 4px;}
 
 .dropdown dt a {height: 48px;max-width: 100px;margin-right: 0px;}
 
