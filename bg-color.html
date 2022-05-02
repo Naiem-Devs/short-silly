@@ -77,7 +77,7 @@
                                         <input type="range" min="0" max="360" value="0">
                                         </div>
                                         <div class="result">
-                                        hsl(0, 100%, 50%)
+                                            #f2f2f2
                                         </div>
                                     </form>
                                   </div>
@@ -112,6 +112,9 @@
            //Color Code         
 // https://codepen.io/ludomydla/pen/QYRpyE
 
+
+
+
 document.addEventListener("DOMContentLoaded", function() {
   let slider = document.querySelector("input[type='range']");
   let pallette = document.querySelector(".pallette");
@@ -137,24 +140,50 @@ document.addEventListener("DOMContentLoaded", function() {
     result.style.backgroundColor = color;
     result.style.color = contrastColor;
     circle.style.borderColor = contrastColor;
+
+    let hslClr = color.replaceAll('hsl(',"").replaceAll(')',"").replaceAll('%',"");
+    let toObj  = hslClr.split(","); 
+    
+    hslToHex(Number(toObj[0]),Number(toObj[1]),Number(toObj[2]))
+ 
   });
   
-  pallette.addEventListener("click", function(ev) {
-    let saturation = Math.round(100 * (ev.offsetX / this.clientWidth));
-    // weird experimental math going on here
-    let lightness = Math.round((50 * (1- (ev.offsetY / this.clientHeight))) * (2 - (saturation/100)));
-    
-    circle.style.top = ev.offsetY + "px";
-    circle.style.left = ev.offsetX + "px";
-    
-    theColor = {h: slider.value, s: saturation, l: lightness};
-    
-    let {color, contrastColor} = getColors();
-    result.innerHTML = color;
-    result.style.backgroundColor = color;
-    result.style.color = contrastColor;
-    circle.style.borderColor = contrastColor;
-  });
+    pallette.addEventListener("click", function(ev) {
+      let saturation = Math.round(100 * (ev.offsetX / this.clientWidth));
+      // weird experimental math going on here
+      let lightness = Math.round((50 * (1- (ev.offsetY / this.clientHeight))) * (2 - (saturation/100)));
+      
+      circle.style.top = ev.offsetY + "px";
+      circle.style.left = ev.offsetX + "px";
+      
+      theColor = {h: slider.value, s: saturation, l: lightness};
+
+      hslToHex(slider.value,saturation,lightness)
+
+
+      let {color, contrastColor} = getColors(); 
+      result.style.backgroundColor = color;
+      result.style.color = contrastColor;
+      circle.style.borderColor = contrastColor;
+    });
+
+
+
+
+
+
+    function hslToHex(h, s, l) { 
+      l /= 100;
+      const a = s * Math.min(l, 1 - l) / 100;
+      const f = n => {
+        const k = (n + h / 30) % 12;
+        const color = l - a * Math.max(Math.min(k - 3, 9 - k, 1), -1);
+        return Math.round(255 * color).toString(16).padStart(2, '0');   // convert to Hex and prefix "0" if needed
+      };
+      let clr = `#${f(0)}${f(8)}${f(4)}`;
+      result.innerHTML = clr; 
+    }
+
   });
   
   
